@@ -1,33 +1,31 @@
 let listaAmigos = [];
-let nombresSorteados = [];
-console.log(listaAmigos);
 
 function agregarAmigo() {
     let amigoIngresado = document.getElementById('amigo');
     let nombre = amigoIngresado.value.trim();
 
     if (nombre === '') {
-        alert('Por favor, ingresa un nombre válido.');
+        alert('Por favor, ingresa un nombre valido.');
         return;
     }
 
     listaAmigos.push(nombre);
-    console.log("Lista actualizada:", listaAmigos);
+    // console.log('Lista actualizada:', listaAmigos);
     actualizarListaAmigos();
     amigoIngresado.value = '';
 }
 
 function actualizarListaAmigos() {
     let seccionListaAmigos = document.getElementById('listaAmigos');
-    seccionListaAmigos.innerHTML = ""; //limpiar lista antes de actualizar
+    seccionListaAmigos.innerHTML = ''; //limpiar lista antes de actualizar
 
     listaAmigos.forEach((amigo, index) => {
-        let listando = document.createElement("li");
+        let listando = document.createElement('li');
         listando.textContent = amigo;
 
         // creando boton para eliminar
-        let botonDelete = document.createElement("button");
-        botonDelete.textContent = "X";
+        let botonDelete = document.createElement('button');
+        botonDelete.textContent = 'X';
         botonDelete.onclick = () => eliminarAmigo(index);
 
         listando.appendChild(botonDelete);
@@ -48,34 +46,20 @@ function asignarTextoElemto(elemento, texto) {
 
 function sortearAmigo() {
     if (listaAmigos.length === 0) {
-        alert("Agrega al menos un nombre antes de sortear.");
-        return;
-    }
-
-    if (nombresSorteados.length === listaAmigos.length) {
-        asignarTextoElemto('#resultado', '¡Ya se sortearon todos los nombres!');
+        alert('Agrega al menos un nombre antes de sortear.');
         return;
     }
 
     let indiceSorteado = Math.floor(Math.random() * listaAmigos.length);
-    console.log("Índice sorteado:", indiceSorteado); //ver numero que se genera
+    // console.log('Índice sorteado:', indiceSorteado);
 
     let amigoSecreto = listaAmigos[indiceSorteado];
-    console.log("Amigo seleccionado:", amigoSecreto); //ver que nombre se elige
+    // console.log('Amigo seleccionado:', amigoSecreto); //amigoSecreto seleccionado
 
-    //recursividad para evitar repetir nombres (aprendido en clase)
-    if (nombresSorteados.includes(amigoSecreto)) {
-        return sortearAmigo();
-    } else {
-        nombresSorteados.push(amigoSecreto);
-        asignarTextoElemto("#resultado", `🎉 Tu amigo secreto es: ${amigoSecreto} 🎉`);
-    }
-}
+    asignarTextoElemto('#resultado', `🎉 Tu amigo secreto es: ${amigoSecreto} 🎉`);
 
-function reiniciarPagina() {
+    // limpiamos la lista
     listaAmigos = [];
-    nombresSorteados = [];
     actualizarListaAmigos();
-    asignarTextoElemto("#resultado", "");
 }
 
