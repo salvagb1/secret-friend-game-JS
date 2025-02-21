@@ -36,12 +36,12 @@ Este es un proyecto simple de Amigo Secreto desarrollado con HTML, CSS y JavaScr
 
     - La lista de nombres se limpiará después del sorteo.
 
-## 🖼️ Vista Previa
+# Vista Previa
 
     - Escriba en el campo de texto el nombre que quiera añadir:
 ![Vista previa 1](assets/vista1.png)
 
-    - Cuando ya tenga una lista de nombres de click en el boton 'Sortear amigo' y le mostrar el amigo elegido:
+    - Cuando ya tenga una lista de nombres de click en el boton 'Sortear amigo' :
 ![Vista previa 2](assets/vista2.png)
 
 # Rama Demo
